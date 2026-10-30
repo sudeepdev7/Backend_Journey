@@ -13,4 +13,4 @@ console.log("Updated age: " + user['age']);
 Object.freeze(user)
 
 user['isLoggedIn'] = false;
-console.log("Freezed object cannot be modified: " + user['isLoggedIn']); //error occurs
+console.log("Freezed objects cannot be modified: " + user['isLoggedIn']);
