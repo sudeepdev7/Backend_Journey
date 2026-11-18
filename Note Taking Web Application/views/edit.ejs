@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Taking App</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+
+<body>
+    <div class="main w-full min-h-screen bg-zinc-900 p-10 text-white">
+        <a class="text-blue-500 inline-block mb-10" href="/">Go back to HomePage.</a>
+        <form action="/edit" method="post">
+            <input class="text-zinc-600 block w-1/4 px-5 py-3 bg-zinc-800 text-white placeholder:text-zinc-400 border border-zinc-700 rounded-lg outline-none focus:border-blue-500" type="text" placeholder="Previous Title" name="previous" readonly value="<%= filename %>">
+
+            <textarea class="block w-1/4 mt-2 px-5 py-3 resize-none bg-zinc-800 text-white placeholder:text-zinc-400 border border-zinc-700 rounded-lg outline-none focus:border-blue-500" placeholder="New Name" name="new"></textarea>
+            <input class="mt-3 px-5 py-3 bg-yellow-600 text-white rounded-lg cursor-pointer hover:bg-yellow-700" type="submit" value="Update Task">
+        </form>
+
+    </div>
+</body>
+
+
+</html>
