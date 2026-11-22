@@ -1,40 +1,36 @@
 const express = require('express');
 const app = express();
+const path = require('path')
 
-const userModel = require('./usermodel');
+const userModel = require('./models/user');
 
-app.get('/', function(req, res) {
-    res.send('Hello World');
+app.set("view engine", "ejs")
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', (req, res) => {
+    res.render("index")
 })
-
-app.get('/create', async function(req, res) {
-    let createduser = await userModel.create({ //asynch operation
-        name: "Sulu",
-        username: "sulu11",
-        email: "anything@example.com"
-    })
-
-    res.send(createduser)
-})
-
-
-
 
 app.get('/read', async(req, res) => {
-    //let user = await userModel.find({ username: "joseph23" });
-    let user = await userModel.find();
-    res.send(user)
+    let allusers = await userModel.find()
+    res.render("read", { users: allusers })
 })
 
-app.get('/update', async function(req, res) {
-    let updateduser = await userModel.findOneAndUpdate({ username: "sudeep123" }, { name: "Sudeep Devkota" }, { new: true });
-    res.send(updateduser)
+app.post('/create', async(req, res) => {
+    let { name, email, image } = req.body;
+    let createduser = await userModel.create({
+        name: name,
+        email,
+        image
+    })
+    res.redirect("/read")
 })
 
-app.get('/delete', async(req, res) => {
-    let deleteduser = await userModel.findOneAndDelete({ username: "joseph23" })
-    res.send()
+app.get('/delete/:id', async(req, res) => {
+    let deleteduser = await userModel.findOneAndDelete({ _id: req.params.id });
+    res.redirect('/read')
 })
 
-
-app.listen(3000);
+app.listen(3000)
