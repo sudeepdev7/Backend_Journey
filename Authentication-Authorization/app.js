@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 
 app.get('/read', (req, res) => {
     console.log(req.cookies);
-    res.send("sent")
+    res.send("initial cookie")
 })
 
 app.listen(3000);
