@@ -1,0 +1,31 @@
+user profile --> check who is user first before giving profile, proof for genuine user
+             --> Give access if valid user
+
+
+show all product --> allow user to change product details if they had admin right
+                 --> if no he/she is not authorized for that task, which is allowed only for admin
+
+
+how sever operate??
+
+--> user ask for profile via browser to server, server responds after validation
+if user send another request server ask to validate again
+
+
+so comes COOKIES and SESSION to rescue
+
+--> sever responds to user after validation with additional string which is send to frontend 
+and string is saved in browser, so for another request the string is attached with request so
+re validation is not required in same SESSION
+
+So in first some concept need to be learned separetly.
+  1. how to set COOKIES and read it
+  2. how to setup bcrypt for password encription and decryption
+  -> let password be password, we changed it with any algorithm let we increase one step character so the new password will be
+  qbrrxpse, but this is very weak which can be found easily
+  so bcrypt help in conversion
+  3. whats jwt and how to store data in jwt and how to access them 
+
+
+  $2b$10$gIEe1qiGGK6ABtomxBWvc.SXFLmlGz/MHgW1U67mTfyCO0eHZk8MC  --> hash stored in database
+  helolololo --> compared with database hash and continue if it match
