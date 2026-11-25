@@ -25,7 +25,8 @@ So in first some concept need to be learned separetly.
   qbrrxpse, but this is very weak which can be found easily
   so bcrypt help in conversion
   3. whats jwt and how to store data in jwt and how to access them 
-
+  --> has 3 component 
+        
 
   $2b$10$gIEe1qiGGK6ABtomxBWvc.SXFLmlGz/MHgW1U67mTfyCO0eHZk8MC  --> hash stored in database
   helolololo --> compared with database hash and continue if it match
